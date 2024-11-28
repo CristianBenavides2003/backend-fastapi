@@ -11,17 +11,17 @@ spec:
   template:
     metadata:
       labels:
-        app: mysql 
-spec:
+        app: mysql
+    spec:
       imagePullSecrets:
-      - name: docker-hub-secret
+        - name: docker-hub-secret
       containers:
-      - name: mysql
-        image: mysql:8.0
-        ports:
-        - containerPort: 3306
-        env:
-        - name: MYSQL_ALLOW_EMPTY_PASSWORD
-          value: "yes" # Cambiar según las necesidades
-        - name: MYSQL_DATABASE
-          value: "dbusers"
+        - name: mysql
+          image: mysql:8.0
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            - name: MYSQL_DATABASE
+              value: "dbusers"
