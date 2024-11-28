@@ -13,8 +13,6 @@ spec:
       labels:
         app: mysql
     spec:
-      imagePullSecrets:
-        - name: docker-hub-secret
       containers:
         - name: mysql
           image: mysql:8.0
