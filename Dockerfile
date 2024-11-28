@@ -11,7 +11,7 @@ WORKDIR /app
 RUN apk add --no-cache gcc musl-dev libffi-dev python3-dev
 
 # Copiar archivo de requerimientos e instalar dependencias
-COPY requirements.txt .
+COPY requirements.txt . 
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el código fuente
@@ -29,7 +29,7 @@ WORKDIR /app
 # Instalar dependencias en tiempo de ejecución
 RUN apk add --no-cache libffi
 
-# Copiar las librerías instaladas y el código desde la etapa de build
+# Copiar las librerías instaladas y el binario de `uvicorn` desde la etapa builder
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 COPY . .
@@ -37,6 +37,10 @@ COPY . .
 # Configurar variables de entorno
 ENV PORT=8000
 
+# Verificar que `uvicorn` está disponible
+RUN uvicorn --version || (echo "Error: uvicorn no está instalado" && exit 1)
+
 # Ejecutar la aplicación
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 
