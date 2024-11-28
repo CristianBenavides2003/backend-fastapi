@@ -13,8 +13,6 @@ spec:
       labels:
         app: fastapi-backend
     spec:
-      imagePullSecrets:
-      - name: docker-hub-secret
       containers:
       - name: fastapi-backend
         image: cristianbenavides/fastapi-backend:latest  # Imagen del backend en DockerHub
