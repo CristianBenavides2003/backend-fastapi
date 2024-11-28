@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 # Cargar las variables de entorno desde el archivo .env
 # Leer DATABASE_URL desde las variables de entorno
 
-DATABASE_URL = "mysql+pymysql://root:@localhost:3306/dbusers"
+DATABASE_URL = "mysql+pymysql://root:@mysql-service/dbusers"
 print(DATABASE_URL)
 # Configurar SQLAlchemy
 engine = create_engine(DATABASE_URL)
