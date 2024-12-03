@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextjs-fronted-deployment
+  namespace: devops-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextjs-fronted
+  template:
+    metadata:
+      labels:
+        app: nextjs-fronted
+    spec:
+      containers:
+        - name: nextjs-fronted
+          image: cristianbenavides/nextjs-fronted:latest
+          ports:
+            - containerPort: 3000 # Puerto donde Angular escucha
