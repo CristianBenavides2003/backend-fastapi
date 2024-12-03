@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-backend-deployment
+  name: back-node-deployment
   namespace: devops-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodejs-backend
+      app: back-node
   template:
     metadata:
       labels:
-        app: nodejs-backend
+        app: back-node
     spec:
       containers:
-      - name: nodejs-backend
+      - name: back-node
         image: cristianbenavides/back-node:latest  # Imagen del backend en DockerHub
         ports:
         - containerPort: 8001

@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-backend-service
+  name: back-node-service
   namespace: devops-dev
 spec:
   selector:
-    app: nodejs-backend
+    app: back-node
   ports:
     - protocol: TCP
       port: 80
