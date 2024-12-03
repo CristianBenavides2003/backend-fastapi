@@ -17,4 +17,4 @@ spec:
         - name: nextjs-fronted
           image: cristianbenavides/nextjs-fronted:latest
           ports:
-            - containerPort: 3001 # Puerto donde Angular escucha
+            - containerPort: 3000 # Puerto donde Angular escucha
